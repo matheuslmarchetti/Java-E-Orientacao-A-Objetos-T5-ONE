@@ -5,6 +5,8 @@ public class TestaConversao {
 		
 		float pontoFlutuante = 3.14f;
 		
+		System.out.println(pontoFlutuante);
+		
 		double salario = 1270.50;
 		int valor = (int) salario;
 		
