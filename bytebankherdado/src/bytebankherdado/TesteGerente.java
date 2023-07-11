@@ -16,6 +16,8 @@ public class TesteGerente {
 		boolean autenticou = matheusGerente.autentica(777);
 		
 		System.out.println(autenticou);
+		
+		System.out.println(matheusGerente.getBonificacao());
 	}
 
 }
