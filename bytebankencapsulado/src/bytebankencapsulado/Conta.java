@@ -11,7 +11,7 @@ public class Conta {
 		total++;
 	    this.agencia = agencia;
 	    this.numero = numero;
-	    this.saldo = 100; //isso significa que toda conta começa com 100 de saldo.
+	    this.saldo = 0; //isso significa que toda conta começa com 100 de saldo.
 	    System.out.println("Estou criando uma conta");
 	}
 
