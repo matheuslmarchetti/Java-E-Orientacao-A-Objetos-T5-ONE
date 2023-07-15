@@ -1,6 +1,6 @@
 package javapilha;
 
-public class Conexao {
+public class Conexao implements AutoCloseable {
 	
 	public Conexao() {
         System.out.println("Abrindo conexao");
@@ -11,8 +11,14 @@ public class Conexao {
         throw new IllegalStateException();
     }
 
-    public void fecha() {
-        System.out.println("Fechando conexao");
-    }
+	/*
+	 * public void fecha() { System.out.println("Fechando conexao"); }
+	 */
+
+	@Override
+	public void close() throws Exception {
+		System.out.println("Fechando conexao");
+		
+	}
     
 }
