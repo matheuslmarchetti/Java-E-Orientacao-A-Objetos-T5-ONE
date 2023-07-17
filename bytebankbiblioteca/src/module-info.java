@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * 
+ */
+module bytebankbiblioteca {
+	requires bytebankherdadoconta;
+}
