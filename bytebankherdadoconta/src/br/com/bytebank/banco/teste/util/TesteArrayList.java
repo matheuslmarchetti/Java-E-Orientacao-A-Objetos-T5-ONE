@@ -10,7 +10,7 @@ public class TesteArrayList {
 
 	public static void main(String[] args) {
 		
-		ArrayList lista = new ArrayList();
+		ArrayList<Conta> lista = new ArrayList<Conta>();
 		
 		Cliente marchetti = new Cliente();
 		marchetti.setNome("Marchetti");
@@ -26,7 +26,8 @@ public class TesteArrayList {
 		System.out.println("Tamanho da lista de contas: " + lista.size());
 		System.out.println("-----------------------------------");
 		
-		Conta ref = (Conta) lista.get(0);
+		//Conta ref = (Conta) lista.get(0);
+		Conta ref = lista.get(0);
 		System.out.println("O número da conta é: " + ref.getNumero());
 		System.out.println("-----------------------------------");
 		
@@ -53,8 +54,11 @@ public class TesteArrayList {
 		
 		System.out.println("-----------------------------------");
 		
-		for(Object oRef : lista) {
-			System.out.println(oRef);
+		//for(Object oRef : lista) {
+			//System.out.println(oRef);
+		//}
+		for(Conta conta : lista) {
+			System.out.println(conta);
 		}
 		
 	}
