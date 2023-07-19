@@ -50,9 +50,7 @@ public class TesteLambda {
 		
 		lista.sort( (c1, c2) -> Integer.compare( c1.getNumero(), c2.getNumero() ) );
 		
-		for (Conta conta : lista) {
-			System.out.println(conta);
-		}
+		lista.forEach( (conta) -> System.out.println(conta) );
 
 	}
 

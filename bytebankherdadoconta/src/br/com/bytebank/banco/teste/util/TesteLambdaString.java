@@ -57,10 +57,8 @@ public class TesteLambdaString {
 		
 		lista.sort(comparator);
 		
-		for (Conta conta : lista) {
-			System.out.println(conta);
-		}
-
+		lista.forEach( (conta) -> System.out.println(conta) );
+		
 	}
 
 }
