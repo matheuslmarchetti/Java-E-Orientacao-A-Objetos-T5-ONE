@@ -17,21 +17,22 @@ public class TesteConversorTerminal {
 			
 			switch (input) {
 			case 1:
-				
+				Conversor.conversor("centímetros(cm)", "metros(m)", 0.01, entrada);
 				break;
 			case 2:
-				
+				Conversor.conversor("metros(m)", "centímetros(cm)", 100, entrada);
 				break;
-			case 3:
-	
+			case 9:
+				System.out.println("Saindo do programa....");
 				break;
-
 			default:
+				System.out.println("------------------------------------------");
 				System.out.println("Digite uma opção válida!");
 				break;
 			}
 		}
-
+		System.out.println();
+		entrada.close();
 	}
 
 }
