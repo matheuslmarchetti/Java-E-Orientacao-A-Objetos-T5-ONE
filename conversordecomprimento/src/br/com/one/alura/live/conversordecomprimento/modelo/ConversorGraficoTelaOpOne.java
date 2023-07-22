@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.Locale;
 
 import javax.swing.JButton;
@@ -21,6 +22,7 @@ public class ConversorGraficoTelaOpOne extends JFrame{
 	private JLabel textMesagem;
 	private JButton buttonCalcular;
 	private JButton buttonVoltar;
+	private JButton buttonSair;
 	
     
     public ConversorGraficoTelaOpOne() {
@@ -72,12 +74,15 @@ public class ConversorGraficoTelaOpOne extends JFrame{
 
 		    
 		    public void mouseClicked(java.awt.event.MouseEvent evt) {
-		    	calcular();
+		    	try {
+					calcular();
+				} catch (ParseException e) {
+					JOptionPane.showMessageDialog(null, "Digite um número válido!" , "Erro!", 
+							JOptionPane.ERROR_MESSAGE);
+				}
 		    }
 		    
 		});
-		//calcular();
-		//buttonAcaoCalcular();
 		add(buttonCalcular);
 		
 		buttonVoltar = new JButton("Voltar");
@@ -100,11 +105,50 @@ public class ConversorGraficoTelaOpOne extends JFrame{
 		    }		    
 		});
 		
-		buttonAcaoVoltar();
+		voltar();
 		add(buttonVoltar);
+		
+		buttonSair = new JButton("Sair");
+		buttonSair.setBounds(225, 350, 150, 30);
+		buttonSair.setFont(new Font("Arial", Font.BOLD, 16));
+		buttonSair.setFocusPainted(false);
+		buttonSair.setForeground(Color.WHITE);
+		buttonSair.setBackground(Color.BLACK);
+		buttonSair.setBorderPainted(false);
+		
+		buttonSair.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	buttonSair.setForeground(Color.BLACK);
+		    	buttonSair.setBackground(Color.GRAY);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	buttonSair.setForeground(Color.WHITE);
+		    	buttonSair.setBackground(Color.BLACK);
+		    }
+		    
+		    public void mouseClicked(java.awt.event.MouseEvent evt) {
+		    	sair();
+		    }
+		});
+		add(buttonSair);		
+	}
+
+	public void calcular() throws ParseException {
+		Locale localeBR = new Locale("pt","BR");
+		NumberFormat numberFormat = NumberFormat.getNumberInstance(localeBR);
+		DecimalFormat decimalFormat= new DecimalFormat("##,##0.00");
+		double valor = decimalFormat.parse(inputNumber.getText()).doubleValue();
+		double proporcao = 0.01;
+		double valorFinal = valor * proporcao;
+		String valorFinalFormatBr = numberFormat.format(valorFinal);
+		
+			JOptionPane.showMessageDialog(null, "O resultado é: " + valorFinalFormatBr + " metro(s)", "Conversão Concluída", 
+			JOptionPane.INFORMATION_MESSAGE);
+		
 	}
 	
-	public void buttonAcaoVoltar() {
+	public void voltar() {
 		
 		buttonVoltar.addActionListener(new ActionListener() {
 			
@@ -113,47 +157,12 @@ public class ConversorGraficoTelaOpOne extends JFrame{
 				new ConversorGraficoTelaOpcoes();            
 			}
 		});
-		
 	}
 	
-	public void buttonAcaoCalcular() {
-		
-		//public static void conversor(String unidadeOrigem, String unidadeDestino, double proporcao, Scanner entrada) {
-		//System.out.println("Ok, você escolheu: " + unidadeOrigem + " para " + unidadeDestino);
-		//System.out.print("Digite o valor a ser convertido: ");
-		//double valor = entrada.nextDouble();
-		//double valorFinal = valor * proporcao;
-		//System.out.println("O resultado é: " + valorFinal + " " + unidadeDestino);
-	//}
-		
-		buttonCalcular.addActionListener(new ActionListener() {
-			
-			double valor = Double.parseDouble(inputNumber.getText());
-			double proporcao = 0.01;
-			double valorFinal = valor * proporcao;
-			
-			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "O resultado é: " + valorFinal, "Conversão Concluída", 
-				JOptionPane.INFORMATION_MESSAGE);
-				
-			}
-		});
-		
-	}
-
-	public void calcular() {
-		Locale localeBR = new Locale("pt","BR");
-		NumberFormat numberFormat = NumberFormat.getNumberInstance(localeBR);
-		//String inputF = numberFormat.format(inputNumber.getText());
-		double valor = Double.parseDouble(inputNumber.getText());
-		//double valor = Double.parseDouble(inputF);
-		double proporcao = 0.01;
-		//numberFormat.format(proporcao);
-		double valorFinal = valor * proporcao;
-		String ValorFinalF = numberFormat.format(valorFinal);
-		
-			JOptionPane.showMessageDialog(null, "O resultado é: " + ValorFinalF + " metro(s)", "Conversão Concluída", 
-			JOptionPane.INFORMATION_MESSAGE);
+	private void sair() {
+		JOptionPane.showMessageDialog(null, "Saindo do programa...", "Mensagem", 
+		JOptionPane.WARNING_MESSAGE);
+		System.exit(0);
 		
 	}
 }
