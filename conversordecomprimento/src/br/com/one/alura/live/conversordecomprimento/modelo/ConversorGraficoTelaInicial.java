@@ -1,31 +1,19 @@
 package br.com.one.alura.live.conversordecomprimento.modelo;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
-public class ConversorGrafico extends JFrame {
-
-	private JMenuBar menuBar;
-	private JMenu menu;
-	private JMenuItem opcao1;
-	private JMenuItem opcao2;
-	private JMenuItem opcao3;
+public class ConversorGraficoTelaInicial extends JFrame {
 	
-	
-	public ConversorGrafico() {
+	public ConversorGraficoTelaInicial() {
 		setVisible(true);
+		setResizable(false);
 		setSize(600, 600);
 		setTitle("Conversor de Comprimentos");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -61,17 +49,7 @@ public class ConversorGrafico extends JFrame {
 			
 			public void actionPerformed(ActionEvent e) {
 				dispose();                //close old frame
-	            JFrame jFrameIniciar = new JFrame("Conversor de Comprimentos");    //creat new frame
-				JPanel painel = new JPanel();
-				painel.setVisible(true);
-				exibirMenu();
-				painel.add(menuBar);
-				add(painel);
-	            jFrameIniciar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	            jFrameIniciar.add(painel);      //add new panel
-	            jFrameIniciar.setVisible(true);       //make it visible
-	            jFrameIniciar.setSize(600,600);      //set the size
-	            jFrameIniciar.setLocationRelativeTo(null);// center frame	
+				new ConversorGraficoTelaOpcoes();            
 			}
 		});
 		
@@ -108,37 +86,6 @@ public class ConversorGrafico extends JFrame {
 		add(buttonIniciar);
 		add(buttonSair);
 		
-	}
-	
-	public void exibirMenu() {
-		menuBar = new JMenuBar();
-		menu = new JMenu("Escolha uma opção: ");
-		opcao1 = new JMenuItem("Converter centímetros(cm) para metros(m)");
-		opcao2 = new JMenuItem("Converter metros(m) para centímetros(cm)");
-		opcao3 = new JMenuItem("Sair do programa");
-		
-		menu.add(opcao1);
-		menu.add(opcao2);
-		menu.add(opcao3);
-		
-		menuBar.add(menu);
-		
-		opcao1.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				
-				
-			}
-		});
-		
-		opcao3.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Saindo do programa...");
-				System.exit(0);
-				
-			}
-		});		
 	}
 	
 }
