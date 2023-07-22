@@ -6,7 +6,6 @@ public class TesteConversorGrafico {
 	public static void main(String[] args) {
 	
 		new ConversorGraficoTelaInicial();
-		//new ConversorGraficoTelaOpOne();
 
 	}
 
