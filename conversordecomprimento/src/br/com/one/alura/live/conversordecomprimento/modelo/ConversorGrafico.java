@@ -1,6 +1,7 @@
 package br.com.one.alura.live.conversordecomprimento.modelo;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -60,24 +61,17 @@ public class ConversorGrafico extends JFrame {
 			
 			public void actionPerformed(ActionEvent e) {
 				dispose();                //close old frame
-	            JFrame painel = new JFrame("Conversor de Comprimentos");    //creat new frame
-	            painel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-	            painel.add(new JPanel());      //add new panel
-	            painel.setVisible(true);       //make it visible
-	            painel.setSize(600,600);      //set the size
-	            painel.setLocationRelativeTo(null);// center frame
-	            painel.setLayout(null);
-	            
-	            
-	            
-//				JPanel painel = new JPanel();
-//				painel.setVisible(true);
-//				
-//				
-//				exibirMenu();
-//				painel.add(menuBar);
-//				add(painel);
-				
+	            JFrame jFrameIniciar = new JFrame("Conversor de Comprimentos");    //creat new frame
+				JPanel painel = new JPanel();
+				painel.setVisible(true);
+				exibirMenu();
+				painel.add(menuBar);
+				add(painel);
+	            jFrameIniciar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	            jFrameIniciar.add(painel);      //add new panel
+	            jFrameIniciar.setVisible(true);       //make it visible
+	            jFrameIniciar.setSize(600,600);      //set the size
+	            jFrameIniciar.setLocationRelativeTo(null);// center frame	
 			}
 		});
 		
@@ -144,8 +138,7 @@ public class ConversorGrafico extends JFrame {
 				System.exit(0);
 				
 			}
-		});
-		
+		});		
 	}
 	
 }
